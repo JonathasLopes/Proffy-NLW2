@@ -6,6 +6,7 @@ import './styles.css';
 
 interface PageHeaderProps {
     title: string;
+    description?: string;
 }
 
 const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
@@ -20,10 +21,15 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
 
             <div className="header-content">
                 <strong>{props.title}</strong>
+                
+                { props.description && <p>{props.description}</p>}
                 {props.children}
             </div>
         </header>
     );
 }
+
+// { props.description && <p>{props.description}</p>} é um if que so vai mostrar a descricao se o props.description for verdadeiro, caso contgrario ele nao vai mostrar o "<p>"
+// se lê: props.description ? <p>{props.description}</p> : null
 
 export default PageHeader;
